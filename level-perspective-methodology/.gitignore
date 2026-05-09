@@ -1,0 +1,35 @@
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Local-only scratch
+/scratch/
+/local-notes/
+
+# Sensitive — populate locally only, never commit
+operations/emergency-contacts.md
+
+# Temporary export artifacts
+*.tmp
+*.bak
+
+# Binary visual exports — these belong in SharePoint, not the repo
+*.mp4
+*.mov
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.pptx
+*.docx
+*.xlsx
+
+# Allow exception only if explicitly committed (rare)
+!doctrine/embedded-images/*
