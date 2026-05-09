@@ -2,7 +2,7 @@
 type: readme
 status: active
 version: 1.0.0
-last-updated: 2026-05-08
+last-updated: 2026-05-09
 playbook: p1-1
 ---
 
@@ -16,7 +16,7 @@ Sync facilitation specs per DOING step (and the integration step). Each spec con
 | `step-5-virtual.md` | 5 — Brand Image | Virtual 90 min | Pending |
 | `step-6-virtual.md` | 6 — Organizational Culture | Virtual 90 min | Pending capture from May 8 chat |
 | `step-8-virtual.md` | 8 — Center reconstruction | Virtual 75–90 min | Pending |
-| `step-9-virtual.md` | 9 — Cross-element gap synthesis + Slide 1 compile | Virtual 90 min | Pending |
+| `step-9-virtual.md` | 9 — Cross-element gap synthesis + Slide 1 compile | Virtual 90 min | **v1.0.0 locked, untested** |
 | `outer-elements-day-in-person.md` | 4 + 5 + 6 combined | In-person 4 hours | Pending |
 | `center-integration-day-in-person.md` | 8 + 9 combined | In-person 3 hours | Pending |
 

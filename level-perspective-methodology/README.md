@@ -2,7 +2,7 @@
 type: repo-root
 status: active
 version: 0.1.0
-last-updated: 2026-05-08
+last-updated: 2026-05-09
 maintainer: Level Perspective (sole proprietor)
 ---
 
@@ -86,13 +86,18 @@ step: 6                                         # if scoped to a step
 
 ## Branching workflow
 
+Single-branch flow on `main`. Claude commits directly to `main` via Desktop Commander + git CLI. There is no staging branch.
+
 | Branch | Purpose | Who writes |
 |---|---|---|
-| `main` | The live methodology. Engagements branch from here. | You only — via weekly merge from `working` |
-| `working` | Where Claude commits in-progress changes | Claude (via MCP) |
+| `main` | The live methodology. All commits land here. | Claude (via Desktop Commander); you (via VS Code or GitHub Desktop) |
 | `engagement/[client]-[YYYY-QN]` | Tagged snapshot at engagement start; protects in-flight engagements from breaking changes | Tagged at engagement spawn; never modified after |
 
-**Weekly Friday ritual:** review the week's commits on `working` via the GitHub web UI; merge into `main` if approved; reject or amend if not. Time budget: 15 min.
+**Architecture rationale (locked 2026-05-09):** the prior architecture had a `working` branch with a Friday merge gate to `main`. That gate was dropped because the friction outweighed the defensibility benefit at solo-author cadence. The Friday weekly-close ritual continues as a review + changelog + Open Brain mirror function, but no longer gates canonicality.
+
+**In-flight engagement protection:** preserved via Git tags rather than branches. When an engagement starts, the methodology version is tagged (`engagement/[client]-[YYYY-QN]`); the engagement uses that tagged version through to close, regardless of subsequent commits to `main`. See *Versioning* below.
+
+**Risk acknowledged:** without a pre-commit gate, bad commits land on `main` immediately. Mitigations: every commit is reviewable via `git log` and `git diff`; Friday weekly-close audits last week's commits; locked specs carry a `version` and `spec-status: locked` frontmatter so accidental edits are visible; tags protect engagement-time snapshots.
 
 ---
 
@@ -141,7 +146,7 @@ Notes start ephemeral (OneNote scratch) and graduate to canonical (this repo) wh
 3. **Findability test:** I want Claude to find this later.
 4. **Doctrine test:** This is a principle that applies across multiple playbooks.
 
-When a trigger fires, ask Claude to graduate the note. Claude reads the OneNote page (photographed if handwritten), drafts a Markdown file with frontmatter, you review, Claude commits to `working` branch.
+When a trigger fires, ask Claude to graduate the note. Claude reads the OneNote page (photographed if handwritten), drafts a Markdown file with frontmatter, you review the diff, Claude commits to `main`.
 
 Notes that don't fire any trigger after 30 days are candidates for archival in the next garage sale.
 
@@ -151,7 +156,7 @@ Notes that don't fire any trigger after 30 days are candidates for archival in t
 
 | Ritual | Cadence | Duration | What happens |
 |---|---|---|---|
-| **Weekly close (Friday)** | Weekly | 15 min | Review `working` branch commits; merge to `main`; identify stale items |
+| **Weekly close (Friday)** | Weekly | 15 min | Review week's commits on `main`; update changelog; mirror Open Brain; identify stale items |
 | **Engagement retro** | Per engagement, at close | 60 min | Structured retro; methodology backlog entries created; engagement archived |
 | **Methodology garage sale** | Quarterly | 90 min | Walk repo with Claude; flag deprecation, archival, refinement candidates |
 | **Disaster recovery test** | Annually | 2 hours | Simulate "Claude unavailable for a week"; verify recovery procedures still work |

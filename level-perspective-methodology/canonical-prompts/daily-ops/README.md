@@ -2,7 +2,7 @@
 type: readme
 status: active
 version: 1.0.0
-last-updated: 2026-05-08
+last-updated: 2026-05-09
 ---
 
 # canonical-prompts/daily-ops/
@@ -11,7 +11,7 @@ Ritual prompts — the operational glue that keeps the methodology layer maintai
 
 | File | Ritual | Cadence | Duration | Status |
 |---|---|---|---|---|
-| `weekly-close.md` | Friday close — review working branch, merge to main, identify stale items, capture pending commits | Weekly | 15 min | Pending |
+| `weekly-close.md` | Friday close — review week's commits on `main`, update changelog, mirror Open Brain, run link-integrity check, identify stale items | Weekly | 15 min | Pending |
 | `methodology-garage-sale.md` | Quarterly review — walk repo, flag deprecation/archival/refinement candidates | Quarterly | 90 min | Pending |
 | `engagement-close-retro.md` | Per-engagement retro — what worked, what failed, methodology backlog entries | Per engagement | 60 min | Pending |
 | `disaster-recovery-test.md` | Annual continuity test — simulate Claude / GitHub / M365 outages | Annually | 2 hours | Pending |
